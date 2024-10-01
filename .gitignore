@@ -1,0 +1,105 @@
+# Xcode
+#
+.DS_Store
+!.DS_Store
+*/.DS_Store
+
+# User-specific files
+xcuserdata/
+
+# Workspace-related files
+*.xcworkspace/
+
+# Build products
+build/
+DerivedData/
+*.app
+*.app.dSYM
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Intermediate Build files
+*.o
+*.d
+*.dia
+*.ll
+*.bc
+*.aux
+
+# Indexes
+*.xcuserstate
+
+# Logs
+*.log
+
+# OS X
+#
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Code Signing
+*.cer
+*.mobileprovision
+*.p12
+
+# Swift Package Manager
+#
+.build/
+# Packages
+Packages/
+# Xcode generated
+*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/
+# SwiftPM specific
+.swiftpm/xcode/
+.swiftpm/configuration/
+
+# Cocoapods
+#
+Pods/
+
+# Carthage
+#
+Carthage/Build/
+
+# Fastlane
+#
+# It is recommended to not ignore the `fastlane` folder to track app metadata
+# But you should ignore the generated screenshots, binaries, and other artifacts
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+fastlane/readme.md
+fastlane/*.lock
+
+# Accio dependency management
+Dependencies/
+.accio/
+
+# Archives
+*.xcarchive
+
+# AppCode
+#
+.idea/
