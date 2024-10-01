@@ -1,1 +1,1 @@
-An iOS application for managing your Earthdawn 4th Edition characters.
+An iOS application for managing your Earthdawn 4th Edition characters. Compatible with iOS and iPadOS
