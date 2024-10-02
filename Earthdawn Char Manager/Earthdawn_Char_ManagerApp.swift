@@ -13,7 +13,7 @@ struct Earthdawn_Char_ManagerApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+			SplitNavView(viewModel: SplitViewModel())
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

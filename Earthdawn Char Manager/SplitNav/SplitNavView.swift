@@ -8,23 +8,28 @@
 import SwiftUI
 import CoreData
 
-struct ContentView: View {
+struct SplitNavView: View {
     @Environment(\.managedObjectContext) private var viewContext
+	@ObservedObject var viewModel: SplitViewModel
     @State private var showAddCharacterDialog = false
 	@State private var newCharacterName = ""
 	@State private var characterName = ""
+	@State private var selectedCharacter: Character?
+	@State private var columnVisibility =
+	NavigationSplitViewVisibility.detailOnly
 	
     @FetchRequest(
 		sortDescriptors: [NSSortDescriptor(keyPath: \Character.name, ascending: true)],
-        animation: .default)
+		animation: .linear)
+	
 	private var characters: FetchedResults<Character>
 
     var body: some View {
-		NavigationView {
+		NavigationSplitView(columnVisibility: $columnVisibility) {
 			List {
 				ForEach(characters) { character in
 					NavigationLink {
-						Text("Item at \(character.name!)")
+						GlobalView(viewModel: GlobalViewModel(character: character))
 					} label: {
 						Text(character.name!)
 					}
@@ -39,13 +44,14 @@ struct ContentView: View {
 					Button(action: {
 						showAddCharacterDialog = true
 					}) {
-						Label("Add Item", systemImage: "plus")
+						Label("Add Character", systemImage: "plus")
 					}
 				}
 			}
 			.navigationTitle("Characters")
 			.navigationBarTitleDisplayMode(.inline)
-			Text("Select an item")
+		} detail: {
+			Text("Select a character")
 		}
 		.sheet(isPresented: $showAddCharacterDialog) {
 			usernamePrompt()
@@ -112,5 +118,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+	SplitNavView(viewModel: SplitViewModel()).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }
