@@ -29,9 +29,34 @@
 		333695DE2C8D6BEF002DBFF8 /* Earthdawn Char ManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Earthdawn Char ManagerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		3379E9562CAD5B870011FEE2 /* Exceptions for "Earthdawn Char Manager" folder in "Earthdawn Char ManagerTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Pages/Home/GlobalView.swift,
+				Pages/Home/GlobalViewModel.swift,
+				SplitNav/SplitViewModel.swift,
+			);
+			target = 333695D32C8D6BEF002DBFF8 /* Earthdawn Char ManagerTests */;
+		};
+		3379E9572CAD5B870011FEE2 /* Exceptions for "Earthdawn Char Manager" folder in "Earthdawn Char ManagerUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Pages/Home/GlobalView.swift,
+				Pages/Home/GlobalViewModel.swift,
+				SplitNav/SplitViewModel.swift,
+			);
+			target = 333695DD2C8D6BEF002DBFF8 /* Earthdawn Char ManagerUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		333695C12C8D6BED002DBFF8 /* Earthdawn Char Manager */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				3379E9562CAD5B870011FEE2 /* Exceptions for "Earthdawn Char Manager" folder in "Earthdawn Char ManagerTests" target */,
+				3379E9572CAD5B870011FEE2 /* Exceptions for "Earthdawn Char Manager" folder in "Earthdawn Char ManagerUITests" target */,
+			);
 			path = "Earthdawn Char Manager";
 			sourceTree = "<group>";
 		};
