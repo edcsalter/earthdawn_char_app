@@ -1,9 +1,70 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23222.3" systemVersion="24B5035e" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="1">
+    <entity name="Attribute" representedClassName="Attribute" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="value" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="ownderCharacter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="attributes" inverseEntity="Character"/>
     </entity>
-    <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-    </elements>
+    <entity name="Character" representedClassName="Character" syncable="YES" codeGenerationType="class">
+        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="damage" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="eyeColor" optional="YES" attributeType="String"/>
+        <attribute name="hair" optional="YES" attributeType="String"/>
+        <attribute name="height" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="Transformable"/>
+        <attribute name="karmaCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="passion" optional="YES" attributeType="String"/>
+        <attribute name="race" optional="YES" attributeType="String"/>
+        <attribute name="recoveryTestCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sex" optional="YES" attributeType="String"/>
+        <attribute name="weight" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="woundsCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="attributes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Attribute" inverseName="ownderCharacter" inverseEntity="Attribute"/>
+        <relationship name="disciplines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Discipline" inverseName="ownerCharacter" inverseEntity="Discipline"/>
+        <relationship name="funds" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Currency" inverseName="ownerCharacter" inverseEntity="Currency"/>
+        <relationship name="items" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="ownerCharacter" inverseEntity="Item"/>
+        <relationship name="legend" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Legend" inverseName="ownerCharacter" inverseEntity="Legend"/>
+        <relationship name="skills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Skill" inverseName="ownerCharacter" inverseEntity="Skill"/>
+        <relationship name="talents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Talent" inverseName="ownerCharacter" inverseEntity="Talent"/>
+    </entity>
+    <entity name="Currency" representedClassName="Currency" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="ownerCharacter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="funds" inverseEntity="Character"/>
+    </entity>
+    <entity name="Discipline" representedClassName="Discipline" syncable="YES" codeGenerationType="class">
+        <attribute name="circle" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="ownerCharacter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="disciplines" inverseEntity="Character"/>
+    </entity>
+    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
+        <attribute name="attack" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="base" optional="YES" attributeType="String"/>
+        <attribute name="damage" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="range" optional="YES" attributeType="String"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="value" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="ownerCharacter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="items" inverseEntity="Character"/>
+    </entity>
+    <entity name="Legend" representedClassName="Legend" syncable="YES" codeGenerationType="class">
+        <attribute name="current" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="total" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="ownerCharacter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="legend" inverseEntity="Character"/>
+    </entity>
+    <entity name="Skill" representedClassName="Skill" syncable="YES" codeGenerationType="class">
+        <attribute name="base" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="rank" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="ownerCharacter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="skills" inverseEntity="Character"/>
+    </entity>
+    <entity name="Talent" representedClassName="Talent" syncable="YES" codeGenerationType="class">
+        <attribute name="action" optional="YES" attributeType="String"/>
+        <attribute name="base" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="rank" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="strain" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="ownerCharacter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="talents" inverseEntity="Character"/>
+    </entity>
 </model>
